@@ -1,5 +1,1 @@
 i2p.i2cp==0.0.1
-future>=0.13.0
-enum34>=1.0
-pytest
-tox

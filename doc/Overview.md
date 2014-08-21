@@ -22,6 +22,6 @@ MetaNet tries to mitigate the Pitfalls of IRC by having every user connect to ev
 * I2P allows "raw" (unsigned) messages, users can choose to send messages to other users anonymously. This can be toggled as desired.
 * [There can only be one](https://www.youtube.com/watch?v=izqeNpod6Mg#t=3m45s) MetaNet unless someone wants to do backwards incompatible changes to the protocol.
 
+UI is not my department, nor will it ever be.
 
-
-
+MetaNet (will) provide a local IRC Daemon that users can connect to with an irc client of their choice.
