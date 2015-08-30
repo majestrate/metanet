@@ -1,8 +1,0 @@
-*~
-*.pyc
-build
-dist
-*.so
-__pycache__
-*.key
-*.egg-info

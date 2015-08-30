@@ -1,3 +1,0 @@
-**Protocol Overview**
-
-TODO: define
