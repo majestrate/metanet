@@ -11,7 +11,7 @@ namespace meta
 {
   namespace crypto
   {
-    bool Base58Decode(std::string const & data, std::vector<char> const & dest);
+    bool DecodeBase58(const char * data, std::vector<char> const & dest);
   }
 }
 
