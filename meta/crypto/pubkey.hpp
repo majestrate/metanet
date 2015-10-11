@@ -12,10 +12,11 @@ namespace meta
 {
   namespace crypto
   {
+    
     typedef std::array<uint8_t, 32> PublicKey;
     typedef std::array<uint8_t, 32> SecretKey;
 
-    bool PublicKeyDecode(std::string const & keydata, PublicKey const & key);
+    bool DecodeKeyFromString(std::string const & keydata, std::array<uint8_t, 32> const & dest);
   }
 }
 #endif

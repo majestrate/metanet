@@ -12,6 +12,7 @@ namespace meta
   namespace crypto
   {
     bool DecodeBase58(const char * data, std::vector<char> const & dest);
+    std::string EncodeBase58(const unsigned char * pbegin, const unsigned char * pend);
   }
 }
 

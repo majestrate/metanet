@@ -20,7 +20,7 @@ namespace meta
       } 
       // first  part is the address string 
       peerAddr = peer_string.substr(space_idx);
-      return crypto::PublicKeyDecode(peer_string.substr(peer_string.size() - space_idx, space_idx + 1), identKey); 
+      return crypto::DecodeKeyFromString(peer_string.substr(peer_string.size() - space_idx, space_idx + 1), identKey); 
     }
 
     PeerSession::PeerSession(const PeerInfo & info) : m_peerinfo(info) {}

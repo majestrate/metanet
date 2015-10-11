@@ -1,3 +1,6 @@
+//
+// meta/crypto/base58.cc
+//
 #include "crypto/base58.hpp"
 #include <cstring>
 namespace meta
@@ -10,8 +13,8 @@ namespace meta
     // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
     // modified from https://github.com/bitcoin/bitcoin/blob/4ca6ddec4d7918b47f0e4747c5647daf54675306/src/base58.cpp
-    
-    /** All alphanumeric characters except for "0", "I", "O", and "l" */
+
+    // All alphanumeric characters except for "0", "I", "O", and "l" 
     static const char* pszBase58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 
     bool DecodeBase58(const char* psz, std::vector<unsigned char>& vch)
