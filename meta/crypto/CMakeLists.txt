@@ -14,6 +14,8 @@ endif()
 set(CRYPTO_SRC
   "encrypt.cc"
   "decrypt.cc"
+  "pubkey.cc"
+  "base58.cc"
 )
 
 add_library(${CRYPTO_NAME} ${CRYPTO_SRC})

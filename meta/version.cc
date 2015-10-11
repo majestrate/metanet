@@ -1,5 +1,5 @@
 #include "version.hpp"
-#include <cstdio>
+#include <sstream>
 
 
 
@@ -11,9 +11,12 @@ namespace meta
 
   const char * version()
   {
-    char version_string[128];
-    sprintf(version_string ,"metad-%d-%d", major_version, minor_version);
-    return version_string;
+    std::stringstream ss;
+    ss << "metad-";
+    ss << major_version;
+    ss << ".";
+    ss << minor_version;
+    return ss.str().c_str();
   }
   
 }

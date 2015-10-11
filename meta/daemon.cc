@@ -1,5 +1,7 @@
 #include "version.hpp"
 #include "core/debug.hpp"
+#include "core/net.hpp"
+#include <string>
 
 using namespace meta;
 
@@ -7,5 +9,15 @@ using namespace meta;
 int main(int argc, char * argv[])
 {
   auto version_string = version();
-  core::log("starting up", version_string);
+  core::log("starting up ", version_string);
+  core::Network net;
+  int idx = 1;
+  while(idx < argc) {
+    std::string peer = argv[idx++];
+    net.AddPeer(peer);
+  }
+  
+  core::log("run network");
+  net.Run();
+  core::log("ended");
 }

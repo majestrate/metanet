@@ -2,8 +2,6 @@
 set(META_NAME "meta")
 set(CORE_NAME "metacore")
 set(CRYPTO_NAME "metacrypto")
-message("core is" ${CORE_NAME})
-message("crypto is" ${CRYPTO_NAME})
 
 # include path is .
 include_directories(".")
