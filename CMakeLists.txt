@@ -49,5 +49,13 @@ include_directories(
 # this is nice
 include(GNUInstallDirs)
 
+# set some variables for names
+set(META_NAME "meta")
+set(CORE_NAME "metacore")
+set(DATATYPE_NAME "metatype")
+set(CRYPTO_NAME "metacrypto")
+
+include_directories("include")
+
 add_subdirectory(meta)
 add_subdirectory(tests)

@@ -2,9 +2,8 @@
 
 
 set(CORE_SRC
-  "net.cc"
-  "peer.cc"
+  "dht/kad.cc"
 )
 
 add_library(${CORE_NAME} ${CORE_SRC})
-target_link_libraries(${CORE_NAME} ${CRYPTO_NAME})
+target_link_libraries(${CORE_NAME} ${DATATYPE_NAME} ${CRYPTO_NAME})

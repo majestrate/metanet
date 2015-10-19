@@ -1,6 +1,6 @@
-#include "version.hpp"
-#include "core/debug.hpp"
-#include "core/net.hpp"
+#include <meta/version.hpp>
+#include <meta/core/debug.hpp>
+#include <meta/core/net.hpp>
 #include <string>
 
 using namespace meta;

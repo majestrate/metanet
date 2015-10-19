@@ -1,7 +1,3 @@
-# set some variables for names
-set(META_NAME "meta")
-set(CORE_NAME "metacore")
-set(CRYPTO_NAME "metacrypto")
 
 # include path is .
 include_directories(".")
@@ -10,6 +6,8 @@ include_directories(".")
 add_subdirectory(crypto)
 # add core sub directory
 add_subdirectory(core)
+# add datatypes directory
+add_subdirectory(datatypes)
 
 set(METAD_SRC
   "daemon.cc"
@@ -23,8 +21,9 @@ set(METAD_NAME metad)
 add_executable(${METAD_NAME} ${METAD_SRC})
 
 # add target libs
-target_link_libraries(metad ${CRYPTO_NAME})
-target_link_libraries(metad ${CORE_NAME})
+target_link_libraries(${METAD_NAME} ${CRYPTO_NAME})
+target_link_libraries(${METAD_NAME} ${DATATYPE_NAME})
+target_link_libraries(${METAD_NAME} ${CORE_NAME})
 
 install(
   TARGETS ${METAD_NAME}
