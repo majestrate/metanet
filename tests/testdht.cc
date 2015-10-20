@@ -7,12 +7,11 @@ void basic_test() {
   meta::dht::Key k1;
   k1.fill(0);
   meta::dht::Value v1;
-  v1.fill(0xff);
+  v1.push_back(1);
   meta::dht::Key k2;
   k2.fill(0);
   meta::dht::Value v2;
-  v2.fill(0);
-
+  v2.push_back(2);
   assert(k1 == k2);
 
   
@@ -43,12 +42,12 @@ void basic_test() {
   meta::dht::Key k3;
   k3.fill(3);
   meta::dht::Value v3;
-  v3.fill(4);
+  v3.push_back(3);
 
   meta::dht::Key k4;
-  k4.fill(5);
+  k4.fill(4);
   meta::dht::Value v4;
-  v4.fill(6);
+  v4.push_back(4);
 
   meta::dht::RouterAdd(r, k3, v3);
   meta::dht::RouterAdd(r, k4, v4);
@@ -73,6 +72,11 @@ void basic_test() {
   assert (c.first == k3);
 }
 
+void message_test() {
+  
+}
+
 int main(int argc, char * argv[]) {
   basic_test();
+  message_test();
 }

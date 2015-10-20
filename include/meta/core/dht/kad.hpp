@@ -5,10 +5,10 @@
 #define META_CORE_DHT_KAD_H
 #include <array>
 #include <functional>
-#include <unordered_map>
 #include <cstring>
+#include <vector>
 #include <memory>
-#include <list>
+#include <map>
 
 namespace meta
 {
@@ -20,7 +20,7 @@ namespace meta
     static constexpr std::size_t keyspace_bits = keyspace_bytes * 8;
     
     typedef std::array<uint8_t, keyspace_bytes> Key;      
-    typedef std::array<uint8_t, keyspace_bytes> Value;
+    typedef std::vector<uint8_t> Value;
     typedef std::array<uint8_t, keyspace_bytes> Distance;
     
     typedef std::pair<Key, Value> Entry;
@@ -40,7 +40,7 @@ namespace meta
     Distance XOR(Key k1, Key k2);
 
 
-    typedef std::pair<std::list<Entry>, DistanceFunction> Router;
+    typedef std::pair<std::map<Key, Value>, DistanceFunction> Router;
 
     typedef std::shared_ptr<Router> RouterPtr;
     
@@ -48,10 +48,6 @@ namespace meta
     void RouterAdd(RouterPtr r, Key & k, Value & v);
     void RouterDel(RouterPtr r, Key & k);
     Entry RouterClosest(RouterPtr r, Key & k);
-
-    void RouterDumpTable(RouterPtr r, std::ostream & os);
-
-    void Dump(const std::array<uint8_t, keyspace_bytes> & k, std::ostream & os);
     
     // create our dht instance
     RouterPtr CreateDHT();

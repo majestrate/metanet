@@ -1,11 +1,11 @@
 //
-// meta/crypto/base58.cc
+// meta/datatypes/base58.cc
 //
-#include "crypto/base58.hpp"
+#include <meta/datatypes/base58.hpp>
 #include <cstring>
 namespace meta
 {
-  namespace crypto
+  namespace datatypes
   {
 
     // Copyright (c) 2014 The Bitcoin Core developers
