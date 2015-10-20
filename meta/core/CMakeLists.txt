@@ -1,6 +1,5 @@
 # core library for metanet
 
-
 set(CORE_SRC
   "dht/kad.cc"
 )

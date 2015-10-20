@@ -40,12 +40,9 @@ find_package (Threads REQUIRED)
 if(THREADS_HAVE_PTHREAD_ARG) # compile time flag
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 endif()
-# Load includes
-include_directories(
-    ${CMAKE_SOURCE_DIR} ${SODIUM_INCLUDE_DIR}
-    ${META_CORE_SRC}
-)
 
+find_package(PkgConfig)
+include(FindPackageHandleStandardArgs)
 # this is nice
 include(GNUInstallDirs)
 
