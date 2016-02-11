@@ -1,7 +1,4 @@
 
-pkg_check_modules(LIBUV REQUIRED libuv)
-
-include_directories(${LIBUV_INCLUDE_DIRS})
 # include path is .
 include_directories(".")
 
@@ -27,7 +24,6 @@ add_executable(${METAD_NAME} ${METAD_SRC})
 target_link_libraries(${METAD_NAME} ${CRYPTO_NAME})
 target_link_libraries(${METAD_NAME} ${DATATYPE_NAME})
 target_link_libraries(${METAD_NAME} ${CORE_NAME})
-target_link_libraries(${METAD_NAME} ${LIBUV_LIBRARIES})
 
 install(
   TARGETS ${METAD_NAME}

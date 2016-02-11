@@ -13,9 +13,26 @@ namespace meta
     typedef std::array<uint8_t, len> buff;
     buff _data;
     SecureBuffer();
+    SecureBuffer(const SecureBuffer&&) = delete;
+    SecureBuffer(SecureBuffer &) = delete;
     ~SecureBuffer();
-    buff & operator =(buff & other) = delete;
-    operator buff();
+    buff & operator =(const buff &) = delete;
+    buff & operator =(buff &) = delete;
+    operator buff&();
+
+    size_t size() const {
+      return _data.size();
+    }
+
+    typedef typename buff::iterator iter;
+    
+    iter end() {
+      return _data.end();
+    }
+    
+    iter begin() {
+      return _data.begin();
+    }
   };
 
 }

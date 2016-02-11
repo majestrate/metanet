@@ -19,13 +19,15 @@ namespace meta
     typedef KeyBuffer SecretKey;
     typedef KeyBuffer PublicKey;
     
-    bool DecodeKeyFromString(std::string const & keydata, std::array<uint8_t, key_bytes> & dest);
-    std::string EncodeKeyToString(std::array<uint8_t, key_bytes> & dest);
+    bool DecodeKeyFromString(const std::string & keydata, KeyBuffer & dest);
+    std::string EncodeKeyToString(KeyBuffer & dest);
 
     // get public key from secret key
     void SecretKeyGetPublicKey(SecretKey & sk, PublicKey & pk);
 
+    // generate a secret key
     void GenerateSecretKey(SecretKey & sk);
+    
   }
 }
 #endif

@@ -9,7 +9,7 @@ namespace meta
 {
   namespace crypto
   {
-    bool DecodeKeyFromString(std::string const & keydata, std::array<uint8_t, 32> & dest)
+    bool DecodeKeyFromString(const std::string & keydata, KeyBuffer & dest)
     {
       std::vector<uint8_t> vec;
       if ( DecodeBase58(keydata.c_str(), vec) && vec.size() == dest.size()) {

@@ -3,17 +3,18 @@
 
 namespace meta
 {
-  template<size_t len>
-  SecureBuffer<len>::SecureBuffer() {
+  template <>
+  SecureBuffer<32ul>::SecureBuffer() {
     sodium_memzero(_data.data(), _data.size());
   }
-  template<size_t len>  
-  SecureBuffer<len>::~SecureBuffer() {
+
+  template <>
+  SecureBuffer<32ul>::~SecureBuffer() {
     sodium_memzero(_data.data(), _data.size());
   }
   
-  template<size_t len>
-  SecureBuffer<len>::operator buff() {
+  template<>
+  SecureBuffer<32ul>::operator buff&() {
     return _data;
   }
 }

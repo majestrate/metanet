@@ -4,10 +4,10 @@
 
 #ifndef META_VERSION_H_
 #define META_VERSION_H_
-
+#include <string>
 namespace meta
 {
-  const char * version();
+  std::string version();
 }
 
 #endif

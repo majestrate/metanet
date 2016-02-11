@@ -9,14 +9,14 @@ namespace meta
   constexpr int major_version = 0;
   constexpr int minor_version = 0;
 
-  const char * version()
+  std::string version()
   {
     std::stringstream ss;
     ss << "metad-";
-    ss << major_version;
+    ss << (int)major_version;
     ss << ".";
-    ss << minor_version;
-    return ss.str().c_str();
+    ss << (int)minor_version;
+    return ss.str();
   }
   
 }

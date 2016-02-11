@@ -24,14 +24,11 @@ endif()
 
 # Check for c++11 support
 include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++11" CXX11_SUPPORTED)
-CHECK_CXX_COMPILER_FLAG("-std=c++0x" CXX0X_SUPPORTED)
+CHECK_CXX_COMPILER_FLAG("-std=c++14" CXX14_SUPPORTED)
 if(CXX11_SUPPORTED)
-    add_definitions("-std=c++11")
-elseif(CXX0X_SUPPORTED) # gcc 4.6
-    add_definitions("-std=c++0x")
+    add_definitions("-std=c++14")
 elseif(NOT MSVC)
-    message(SEND_ERROR "C++11 standard not supported by compiler. Version too old?")
+    message(SEND_ERROR "C++14 standard not supported by compiler. Version too old?")
 endif()
 
 # use pthreads

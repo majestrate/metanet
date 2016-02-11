@@ -1,9 +1,11 @@
 #include <meta/core/dht/kad.hpp>
 #include <assert.h>
 
+#include <iostream>
 
 void basic_test() {
-
+  std::cout << "basic test " << std::flush;
+  
   meta::dht::Key k1;
   k1.fill(0);
   meta::dht::Value v1;
@@ -19,13 +21,13 @@ void basic_test() {
   
   assert(k1 != k2);
   assert(k1 > k2);
-
+  
   k2[0] = 1;
 
   assert(k1 != k2);
   assert(k1 < k2);
 
-  auto r = meta::dht::CreateDHT();
+  const meta::dht::RouterPtr r = meta::dht::CreateDHT();
 
   assert( ! meta::dht::RouterContainsKey(r, k1) );
 
@@ -73,10 +75,12 @@ void basic_test() {
 }
 
 void message_test() {
-  
+  std::cout << "message test " << std::flush;
 }
 
 int main(int argc, char * argv[]) {
   basic_test();
+  std::cout << "okay" << std::endl;
   message_test();
+  std::cout << "okay" << std::endl;
 }

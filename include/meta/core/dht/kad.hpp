@@ -25,9 +25,6 @@ namespace meta
     
     typedef std::pair<Key, Value> Entry;
 
-    typedef std::shared_ptr<Key> Keyptr;
-    typedef std::shared_ptr<Value> Valueptr;
-    
     bool operator<(Key & k1, Key & k2);
     bool operator>(Key & k1, Key & k2);
     bool operator==(Key & k1, Key & k2);
@@ -42,16 +39,14 @@ namespace meta
 
     typedef std::pair<std::map<Key, Value>, DistanceFunction> Router;
 
-    typedef std::shared_ptr<Router> RouterPtr;
+    typedef std::unique_ptr<Router> RouterPtr;
     
-    bool RouterContainsKey(RouterPtr r, const Key & k);
-    void RouterAdd(RouterPtr r, Key & k, Value & v);
-    void RouterDel(RouterPtr r, Key & k);
-    Entry RouterClosest(RouterPtr r, Key & k);
-    
-    // create our dht instance
+    bool RouterContainsKey(const RouterPtr & r, const Key & k);
+    void RouterAdd(const RouterPtr & r, Key & k, Value & v);
+    void RouterDel(const RouterPtr & r, Key & k);
+    Entry RouterClosest(const RouterPtr & r, Key & k);
+
     RouterPtr CreateDHT();
-    
   }
 }
 #endif

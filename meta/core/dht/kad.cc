@@ -36,15 +36,15 @@ namespace meta
       return std::memcmp(k1.data(), k2.data(), keyspace_bytes) == 0;
     }
 
-    bool RouterContainsKey(RouterPtr r,const Key & k) {
+    bool RouterContainsKey(const RouterPtr & r,const Key & k) {
       return r->first.find(k) != r->first.end();
     }
 
-    void RouterAdd(RouterPtr r, Key & k, Value & v) {
+    void RouterAdd(const RouterPtr & r, Key & k, Value & v) {
       r->first[k] = v;
     }
 
-    void RouterDel(RouterPtr r, Key & k) {
+    void RouterDel(const RouterPtr & r, Key & k) {
       auto itr = r->first.find(k);
       if ( itr != r->first.end()) {
         r->first.erase(itr);
@@ -52,7 +52,7 @@ namespace meta
     }
 
     // get entry closest to k 
-    Entry RouterClosest(RouterPtr r, Key & k) {
+    Entry RouterClosest(const RouterPtr & r, Key & k) {
       Distance dist;
       dist.fill(0xff);
       Entry ret;
@@ -68,9 +68,7 @@ namespace meta
     }
     
     RouterPtr CreateDHT() {
-      RouterPtr r = std::make_shared<Router>();
-      r->second = XOR;
-      return r;
+      return std::make_unique<Router>(std::map<Key, Value>(), XOR);
     }
   }
 }
