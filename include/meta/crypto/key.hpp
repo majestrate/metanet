@@ -18,6 +18,8 @@ namespace meta
     typedef SecureBuffer<key_bytes> KeyBuffer;
     typedef KeyBuffer SecretKey;
     typedef KeyBuffer PublicKey;
+    typedef KeyBuffer SymmetricKey;
+
     
     bool DecodeKeyFromString(const std::string & keydata, KeyBuffer & dest);
     std::string EncodeKeyToString(KeyBuffer & dest);
@@ -27,6 +29,21 @@ namespace meta
 
     // generate a secret key
     void GenerateSecretKey(SecretKey & sk);
+
+
+    // do symmetric encryption
+    // assumes aligned
+    void EncryptSymmetric(SymmetricKey & k,
+                          const uint8_t * inbuff, const size_t inlen,
+                          uint8_t * outbuff, const size_t outlen);
+
+    // do symmetric decryption
+    // assumes aligned
+    void DecryptSymmetric(SymmetricKey & k,
+                          const uint8_t * inbuff, const size_t inlen,
+                          uint8_t * outbuff, const size_t outlen);
+
+    
     
   }
 }

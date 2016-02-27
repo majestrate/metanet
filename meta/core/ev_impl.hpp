@@ -3,6 +3,8 @@
 #include <string>
 #include <cstdint>
 #include <future>
+#include <sys/socket.h>
+#include <meta/core/packet.hpp>
 
 namespace meta
 {
@@ -14,13 +16,14 @@ namespace meta
     
     class EventCorePimpl {
     public:
-      EventCorePimpl();
+      EventCorePimpl(PacketHandler & handler);
       void Mainloop();
       void Wait();
       void AddLinkFd(int af, int fd);
     private:
       void Recv(int linkidx);
       void Error(int linkidx);
+      PacketHandler packet;
       size_t recvsize;
       uint8_t recvbuff[max_recv_mtu];
       int linkfds[max_links];

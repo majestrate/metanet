@@ -95,6 +95,8 @@ namespace meta
         ssize_t rbytes = recvfrom(linkfds[linkidx], recvbuff, max_recv_mtu, 0, saddr, &saddrlen);
         if (rbytes > 0) {
           // we got a packet
+          const size_t l = rbytes;
+          packet.GotPacketFrom(saddr, recvbuff, l);
         } else {
           // error
           perror("recvfrom()");

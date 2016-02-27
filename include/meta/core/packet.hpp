@@ -1,0 +1,7 @@
+namespace meta
+{
+  namespace core
+  {
+    
+  }  
+}
